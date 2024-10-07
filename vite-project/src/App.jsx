@@ -57,6 +57,18 @@ function App() {
       surname: 'Özadam',
       email: 'abarçinözadam@gmail.com',
       age: '24'
+    },
+    {
+      name: 'Yunus Emre',
+      surname: 'Yener',
+      email: 'yeneremre@gmail.com',
+      age: '222'
+    },
+    {
+      name: 'Berke',
+      surname: 'Acar',
+      email: 'berkeacar@gmail.com',
+      age: '222'
     }
   ]);
 
