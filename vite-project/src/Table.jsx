@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import CircularJSON from 'circular-json';
 export default function Table({ head, body, searchable }) {
 
-    const [sorting, setSorting] = useState({})
+    const [sorting, setSorting] = useState(false)
     const [search, setSearch] = useState('')
     const filteredData = body.filter(
         items => items.some(item => item.toString().toLocaleLowerCase('TR').includes(search))
@@ -23,10 +23,20 @@ export default function Table({ head, body, searchable }) {
             {/* <div className="w-full border rounded p-4"> */}
             {searchable && (
                 <div className="mb-4 flex gap-x-2">
-                    <input value={search}
+                    <input
+                        value={search}
                         onChange={e => setSearch(e.target.value)}
                         type="text"
-                        className="h-10 outline-none focus:border-black border rounded text-sm px-4 w-full border-gray-300" placeholder="Tabloda Ara..."></input>
+                        placeholder="Tabloda ara"
+                        className="h-10 outline-none focus:border-black border rounded text-sm px-4 w-full border-gray-300"
+                    />
+                    {sorting && (
+                        <button
+                            onClick={() => setSorting(false)}
+                            className="h-10 rounded whitespace-nowrap border border-red-500 text-red-500 text-sm px-4">
+                            Sıralamayı İptal Et
+                        </button>
+                    )}
                 </div>
             )}
             <table className="w-full">
