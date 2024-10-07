@@ -3,8 +3,7 @@ import './App.css';
 import Table from "./Table";
 
 function App() {
-
-  const users = [
+  const [users, setUsers] = useState([
     {
       name: 'Emircan',
       surname: 'Gürbüz',
@@ -59,7 +58,7 @@ function App() {
       email: 'abarçinözadam@gmail.com',
       age: '24'
     }
-  ]
+  ]);
 
   return (
     <div className="p-4">
@@ -67,17 +66,27 @@ function App() {
         searchable={true}
         head={[
           { name: 'Ad-Soyad', sortable: true },
-          { name: 'E-Posta' },
+          { name: 'E-posta' },
           { name: 'Yaş', sortable: true },
-          { name: 'İşlemler', width: 200 },
+          { name: 'İşlemler', width: 200 }
         ]}
-        body={users.map(user => ([
-          `${user.name} ${user.surname}`,
+        body={users && users.map((user, key) => ([
+          <div key={`${user.name} ${user.surname}`}>{user.name} {user.surname}</div>,
           user.email,
-          user.age,
+          <div key={`Yaş ${user.age}`}>{user.age}</div>,
           [
             <button key={`${user.email}-edit`} className="px-4 py-2 items-center rounded bg-blue-600 text-white">Düzenle</button>,
-            <button key={`${user.email}-delete`} className="px-4 py-2 items-center rounded bg-red-600 text-white">Sil</button>
+            <button
+              key={`${user.email}-delete`}
+              onClick={() => {
+                const tmpUsers = [...users];
+                tmpUsers.splice(key, 1);
+                setUsers(tmpUsers);
+              }}
+              className="px-4 py-2 items-center rounded bg-red-600 text-white"
+            >
+              Sil
+            </button>
           ]
         ]))} />
     </div>
