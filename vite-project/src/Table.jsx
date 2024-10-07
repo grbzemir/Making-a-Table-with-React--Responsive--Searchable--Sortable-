@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 export default function Table({ head, body }) {
     return (
-        <div className="head1">
+        <div className="w-full border rounded p-4">
             <table>
                 <thead>
                     <tr>
                         {head.map((h, key) => (
-                            <th className=".head3"
+                            <th className="text-left , text-sm font-semibold text-gray-500 p-4"
                                 key={key}>{h}</th>
                         ))}
                     </tr>

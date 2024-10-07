@@ -61,7 +61,7 @@ function App() {
 
 
   return (
-    <div className="head">
+    <div className="w-full border rounded p-4">
       <Table head={['Ad-Soyad', 'E-posta']}
         body={users.map(user => ([
           user.name,
