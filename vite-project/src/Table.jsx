@@ -1,18 +1,28 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import CircularJSON from 'circular-json';
 export default function Table({ head, body, searchable }) {
 
+    const [sorting, setSorting] = useState({})
     const [search, setSearch] = useState('')
     const filteredData = body.filter(
-        items => items.some(item => item.toString().toLocaleLowerCase('TR').includes(search)))
-    const [sorting, setSorting] = useState({})
+        items => items.some(item => item.toString().toLocaleLowerCase('TR').includes(search))
+    ).sort((a, b) => {
+        if (sorting?.orderBy === 'asc') {
+            return a[sorting.key].localeCompare(b[sorting.key]);
+            // a.localeCompare(b)
+        }
+        else if (sorting?.orderBy === 'desc') {
+            return b[sorting.key].localeCompare(a[sorting.key]);
+        }
+    })
 
     return (
         <>
             {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
             {/* <div className="w-full border rounded p-4"> */}
             {searchable && (
-                <div className="mb-4">
+                <div className="mb-4 flex gap-x-2">
                     <input value={search}
                         onChange={e => setSearch(e.target.value)}
                         type="text"
@@ -30,7 +40,20 @@ export default function Table({ head, body, searchable }) {
                                 {h.name}
                                 {h.sortable &&
                                     (
-                                        <button disabled>Sortable</button>
+                                        <button onClick={() => {
+                                            if (sorting?.key === key) {
+                                                setSorting({
+                                                    key,
+                                                    orderBy: sorting.orderBy === 'asc' ? 'desc' : 'asc'
+                                                })
+                                            }
+                                            else {
+                                                setSorting({
+                                                    key,
+                                                    orderBy: 'asc'
+                                                })
+                                            }
+                                        }}>sortable</button>
                                     )}
                             </th>
                         ))}
@@ -55,7 +78,7 @@ export default function Table({ head, body, searchable }) {
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </table >
             {/* </div> */}
         </>
     )

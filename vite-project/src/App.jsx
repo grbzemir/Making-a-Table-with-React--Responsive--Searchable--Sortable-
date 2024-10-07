@@ -9,37 +9,37 @@ function App() {
       name: 'Emircan',
       surname: 'Gürbüz',
       email: 'emircangrz@gmail.com',
-      age: '21'
+      age: '39'
     },
     {
       name: 'Eren Efe',
       surname: 'Yıldız',
       email: 'erenefeyldz@gmail.com',
-      age: '21'
+      age: '25'
     },
     {
       name: 'Can Tekin',
       surname: 'Tekin',
       email: 'cantkn1@gmail.com',
-      age: '21'
+      age: '27'
     },
     {
       name: 'Muharrem',
       surname: 'Kalaycıoğlu',
       email: 'mhrremklycgl@gmail.com',
-      age: '21'
+      age: '31'
     },
     {
       name: 'Sena Sare',
       surname: 'Ergin',
       email: 'snaergin@gmail.com',
-      age: '21'
+      age: '29'
     },
     {
       name: 'Berra',
       surname: 'Demirağ',
       email: 'berrademirağ1@gmail.com',
-      age: '21'
+      age: '23'
     },
     {
       name: 'Rana',
@@ -51,7 +51,7 @@ function App() {
       name: 'Zuhal',
       surname: 'Kaya',
       email: 'zuhalkaya@gmail.com',
-      age: '21'
+      age: '22'
     },
     {
       name: 'Amine Barçın',
