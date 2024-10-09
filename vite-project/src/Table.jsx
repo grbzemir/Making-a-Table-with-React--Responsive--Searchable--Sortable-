@@ -40,6 +40,7 @@ export default function Table({ head, body, searchable }) {
         <>
             {/* <pre>{JSON.stringify(filteredData, null, 2)}</pre> */}
             {/* <div className="w-full border rounded p-4"> */}
+
             {searchable && (
                 <div className="mb-4 flex gap-x-2">
                     <input

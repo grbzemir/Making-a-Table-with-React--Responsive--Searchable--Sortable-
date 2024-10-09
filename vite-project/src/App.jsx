@@ -62,13 +62,13 @@ function App() {
       name: 'Yunus Emre',
       surname: 'Yener',
       email: 'yeneremre@gmail.com',
-      age: '222'
+      age: '33'
     },
     {
       name: 'Berke',
       surname: 'Acar',
       email: 'berkeacar@gmail.com',
-      age: '222'
+      age: '32'
     }
   ]);
 
